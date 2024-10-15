@@ -1,0 +1,387 @@
+/* Déclaration des variables CSS */
+:root {
+  --primary-color: #333; /* Couleur principale (texte, nav bar) */
+  --secondary-color: #ff7f50; /* Couleur secondaire (hover, accents) */
+  --background-color: #f7f7f7; /* Couleur de fond générale */
+  --text-color: #555; /* Couleur du texte secondaire */
+  --highlight-text: #444; /* Couleur du texte important */
+  --container-bg-color: #f0f0f0; /* Couleur de fond des conteneurs */
+  --content-bg-color: rgba(255, 255, 255, 0.8); /* Fond des blocs de contenu */
+  --border-color: rgba(0, 0, 0, 0.1); /* Ombre des blocs */
+}
+
+/* Global Styling */
+* {
+  margin: 0; /* Supprime la marge par défaut */
+  padding: 0; /* Supprime le padding par défaut */
+  box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur et la hauteur */
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif; /* Police utilisée dans le corps */
+  background-color: var(--background-color); /* Couleur de fond générale */
+  color: var(--primary-color); /* Couleur du texte principal */
+  line-height: 1.6; /* Hauteur de ligne pour une meilleure lisibilité */
+}
+
+main {
+  max-width: 1200px; /* Largeur maximale de la section principale */
+  margin: 60px auto; /* Marge automatique pour centrer */
+  padding: 30px; /* Padding intérieur */
+  background-color: white; /* Couleur de fond blanche */
+  box-shadow: 0 4px 15px var(--border-color); /* Ombre portée */
+  border-radius: 10px; /* Arrondi léger pour un look moderne */
+}
+
+/* Titres */
+h1 {
+  font-size: 2.5rem; /* Taille de police pour h1 */
+  color: var(--primary-color); /* Couleur principale */
+  margin-bottom: 20px; /* Marge en bas */
+  text-align: center; /* Centre le texte */
+}
+
+/* Paragraphes et listes */
+p,
+ul {
+  font-size: 1.2rem; /* Taille de police pour p et ul */
+  margin-bottom: 20px; /* Marge en bas */
+  color: var(--text-color); /* Couleur du texte secondaire */
+}
+
+ul li {
+  margin-bottom: 10px; /* Marge en bas pour les éléments de la liste */
+}
+
+/* Présentation section styles */
+.presentation-content {
+  display: flex; /* Affichage en flex pour alignement */
+  justify-content: space-between; /* Espace entre les éléments */
+  align-items: center; /* Aligne les éléments au centre */
+  margin-bottom: 20px; /* Marge en bas */
+}
+
+.photo img {
+  max-width: 250px; /* Largeur maximale de l'image */
+  border-radius: 8px; /* Arrondi des coins de l'image */
+  box-shadow: 0 6px 12px var(--border-color); /* Ombre portée sur l'image */
+  transition: transform 0.3s ease-in-out; /* Effet de zoom au survol */
+}
+
+.photo img:hover {
+  transform: scale(1.05); /* Zoom effet */
+}
+
+.text-content {
+  flex: 1; /* Prend tout l'espace disponible */
+  margin-left: 30px; /* Marge à gauche */
+  color: var(--highlight-text); /* Couleur pour le texte important */
+}
+
+.text-content strong {
+  color: var(--secondary-color); /* Couleur pour le texte important avec couleur secondaire */
+}
+
+/* Liens de contact */
+#contact a {
+  color: var(--secondary-color); /* Couleur des liens */
+  text-decoration: none; /* Supprime le soulignement */
+}
+
+#contact a:hover {
+  text-decoration: underline; /* Souligne au survol */
+}
+
+/* Texte en dessous */
+.text-below {
+  margin-top: 20px; /* Marge en haut */
+  font-size: 1.1rem; /* Taille de police */
+  text-align: center; /* Centre le texte */
+  color: var(--text-color); /* Couleur du texte secondaire */
+}
+
+/* Timeline styling */
+.timeline {
+  position: relative; /* Positionnement relatif pour les enfants */
+  max-width: 100%; /* Largeur maximale */
+  margin: 50px auto; /* Marge auto pour centrer */
+  font-family: 'Poppins', sans-serif; /* Police de la timeline */
+}
+
+.timeline::after {
+  content: ''; /* Contenu vide pour la ligne centrale */
+  position: absolute; /* Positionnement absolu */
+  width: 4px; /* Largeur de la ligne */
+  background-color: var(--primary-color); /* Couleur de la ligne */
+  top: 0; /* Alignement en haut */
+  bottom: 0; /* Alignement en bas */
+  left: 50%; /* Centré horizontalement */
+  margin-left: -2px; /* Ajuste la ligne pour qu'elle soit centrée */
+}
+
+.container {
+  padding: 10px 40px; /* Padding interne */
+  position: relative; /* Positionnement relatif pour les enfants */
+  width: 50%; /* Largeur de chaque conteneur */
+  border-radius: 10px; /* Pour un design plus arrondi */
+}
+
+/* Animation Keyframes */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0; /* Commence invisible */
+    transform: translateX(-50px); /* Déplace vers la gauche */
+  }
+  to {
+    opacity: 1; /* Devient visible */
+    transform: translateX(0); /* Retour à la position d'origine */
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0; /* Commence invisible */
+    transform: translateX(50px); /* Déplace vers la droite */
+  }
+  to {
+    opacity: 1; /* Devient visible */
+    transform: translateX(0); /* Retour à la position d'origine */
+  }
+}
+
+/* Animation pour les conteneurs gauche et droit */
+.container.left {
+  animation: fadeInLeft 0.7s ease-in-out forwards; /* Animation pour la gauche */
+  opacity: 0; /* Cache les éléments au début */
+}
+
+.container.right {
+  animation: fadeInRight 0.7s ease-in-out forwards; /* Animation pour la droite */
+  opacity: 0; /* Cache les éléments au début */
+}
+
+/* Délai d'animation pour l'apparition séquentielle */
+.container:nth-child(1) { animation-delay: 0.2s; }
+.container:nth-child(2) { animation-delay: 0.4s; }
+.container:nth-child(3) { animation-delay: 0.6s; }
+.container:nth-child(4) { animation-delay: 0.8s; }
+.container:nth-child(5) { animation-delay: 1s; }
+
+.container::after {
+  content: ''; /* Contenu vide pour le cercle */
+  position: absolute; /* Positionnement absolu */
+  width: 25px; /* Largeur du cercle */
+  height: 25px; /* Hauteur du cercle */
+  right: -17px; /* Positionnement à droite */
+  background-color: var(--container-bg-color); /* Couleur de fond du cercle */
+  border: 4px solid var(--secondary-color); /* Bordure du cercle */
+  top: 15px; /* Positionnement en haut */
+  border-radius: 50%; /* Cercle parfait */
+  z-index: 1; /* Au-dessus des autres éléments */
+}
+
+/* Position des conteneurs gauche et droite */
+.left {
+  left: 0; /* Positionnement à gauche */
+}
+
+.right {
+  left: 50%; /* Positionnement à droite */
+}
+
+/* Flèches pour les conteneurs gauche et droite */
+.left::before {
+  content: " "; /* Contenu vide pour la flèche */
+  height: 0; /* Pas de hauteur */
+  position: absolute; /* Positionnement absolu */
+  top: 22px; /* Positionnement vertical */
+  width: 0; /* Pas de largeur */
+  z-index: 1; /* Au-dessus des autres éléments */
+  right: 30px; /* Positionnement à droite */
+  border: medium solid rgb(139, 46, 46); /* Bordure pour la flèche */
+  border-width: 10px 0 10px 10px; /* Dimensions de la flèche */
+  border-color: transparent transparent transparent rgb(107, 45, 45); /* Couleurs de la flèche */
+}
+
+.right::before {
+  content: " "; /* Contenu vide pour la flèche */
+  height: 0; /* Pas de hauteur */
+  position: absolute; /* Positionnement absolu */
+  top: 22px; /* Positionnement vertical */
+  width: 0; /* Pas de largeur */
+  z-index: 1; /* Au-dessus des autres éléments */
+  left: 30px; /* Positionnement à gauche */
+  border: medium solid rgb(196, 40, 40); /* Bordure pour la flèche */
+  border-width: 10px 10px 10px 0; /* Dimensions de la flèche */
+  border-color: transparent rgb(121, 19, 19) transparent transparent; /* Couleurs de la flèche */
+}
+
+.right::after {
+  left: -16px; /* Positionnement à gauche */
+}
+
+/* Contenu des conteneurs */
+.content {
+  padding: 20px 30px; /* Padding interne */
+  background-color: var(--container-bg-color); /* Couleur de fond des conteneurs */
+  border-radius: 8px; /* Arrondi des coins */
+  box-shadow: 0 4px 10px var(--border-color); /* Ombre portée */
+  transition: background-color 0.3s; /* Transition pour le fond */
+}
+
+.content:hover {
+  background-color: var(--secondary-color); /* Couleur de fond au survol */
+  color: white; /* Couleur du texte au survol */
+}
+
+/* Responsive timeline */
+@media screen and (max-width: 600px) {
+  .timeline::after {
+    left: 31px; /* Ajuste la ligne centrale pour les petits écrans */
+  }
+
+  .container {
+    width: 100%; /* Occupe toute la largeur */
+    padding-left: 70px; /* Ajuste le padding à gauche */
+    padding-right: 25px; /* Ajuste le padding à droite */
+  }
+
+  .left::after,
+  .right::after {
+    left: 25px; /* Ajuste le cercle pour qu'il soit bien aligné avec la ligne centrale */
+  }
+
+  .left::before {
+    right: auto; /* Enlève la flèche à droite */
+    left: 60px; /* Ajuste la position de la flèche à gauche */
+    border-width: 10px 10px 10px 0; /* Ajuste la direction de la flèche */
+    border-color: transparent rgb(107, 45, 45) transparent transparent; /* Change la direction de la flèche */
+  }
+
+  .right::before {
+    left: 60px; /* Ajuste la flèche à gauche */
+    border-width: 10px 10px 10px 0; /* Ajuste la direction de la flèche */
+    border-color: transparent rgb(121, 19, 19) transparent transparent; /* Change la direction de la flèche */
+  }
+
+  .right {
+    left: 0%; /* Assure que les conteneurs sont alignés à gauche */
+  }
+
+  /* Ajuste la taille et la position des cercles */
+  .container::after {
+    width: 20px; /* Ajuste la largeur du cercle */
+    height: 20px; /* Ajuste la hauteur du cercle */
+    left: 20px; /* Repositionne le cercle pour qu'il soit aligné avec la ligne centrale */
+  }
+
+  /* Responsive Présentation section */
+  .presentation-content {
+    flex-direction: column; /* Colonne pour les petits écrans */
+    text-align: center; /* Centre le texte */
+  }
+
+  .photo img {
+    max-width: 50%; /* Ajuste la taille de l'image */
+    margin-bottom: 20px; /* Marge en bas de l'image */
+  }
+
+  .text-content {
+    margin-left: 0; /* Supprime la marge à gauche */
+  }
+}
+
+/* Soft Skills Section */
+h1,
+h2 {
+  opacity: 0; /* Commence caché pour l'animation */
+  animation: fadeIn 0.5s forwards; /* Appliquer l'animation */
+  margin-bottom: 15px; /* Marge en bas */
+}
+
+p {
+  margin-bottom: 20px; /* Marge en bas */
+  line-height: 1.5; /* Hauteur de ligne pour une meilleure lisibilité */
+}
+
+ul {
+  margin-left: 20px; /* Marge à gauche pour les listes */
+}
+
+/* Keyframes d'animation pour fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Commence invisible */
+    transform: translateY(-20px); /* Déplace vers le haut */
+  }
+  to {
+    opacity: 1; /* Devient visible */
+    transform: translateY(0); /* Retour à la position d'origine */
+  }
+}
+
+/* Langage buttons */
+.lang-button {
+  display: flex; /* Affichage en flex pour alignement */
+  align-items: center; /* Centre les éléments */
+  margin: 10px; /* Marge autour */
+  padding: 10px 15px; /* Padding interne */
+  border: none; /* Pas de bordure */
+  background-color: #f5f5f5; /* Couleur de fond */
+  border-radius: 5px; /* Arrondi des coins */
+  cursor: pointer; /* Curseur pointer pour le bouton */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre portée */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour le fond et la transformation */
+  opacity: 0; /* Commence caché pour l'animation */
+  transform: translateY(20px); /* Déplacement vers le bas pour l'animation */
+}
+
+.lang-button:hover {
+  background-color: #e0e0e0; /* Couleur de fond au survol */
+  transform: scale(1.05); /* Effet de zoom au survol */
+}
+
+.lang-logo {
+  width: 30px; /* Largeur de l'icône */
+  height: 30px; /* Hauteur de l'icône */
+  margin-right: 10px; /* Marge à droite */
+}
+
+.lang-name {
+  font-size: 16px; /* Taille de police pour le nom du langage */
+  font-weight: bold; /* Gras pour le nom du langage */
+}
+
+.category-title {
+  font-size: 1.8rem; /* Taille de police pour les titres de catégorie */
+  margin-top: 30px; /* Marge en haut */
+  font-weight: bold; /* Gras pour le titre */
+  color: #333; /* Couleur du texte */
+  text-align: center; /* Centre le texte */
+  opacity: 0; /* Commence caché pour l'animation */
+  animation: fadeInDown 0.5s forwards; /* Animation pour l'apparition */
+}
+
+/* Keyframes d'animation pour fadeInUp */
+@keyframes fadeInUp {
+  from {
+    opacity: 0; /* Commence invisible */
+    transform: translateY(20px); /* Déplace vers le bas */
+  }
+  to {
+    opacity: 1; /* Devient visible */
+    transform: translateY(0); /* Retour à la position d'origine */
+  }
+}
+
+/* Keyframes d'animation pour fadeInDown */
+@keyframes fadeInDown {
+  from {
+    opacity: 0; /* Commence invisible */
+    transform: translateY(-20px); /* Déplace vers le haut */
+  }
+  to {
+    opacity: 1; /* Devient visible */
+    transform: translateY(0); /* Retour à la position d'origine */
+  }
+}

@@ -1,0 +1,176 @@
+/* Main container */
+.car-container {
+    padding-bottom: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    height: auto;
+}
+
+/* Flip card styles */
+.flip-card {
+    width: 45%;
+    height: 420px;
+    perspective: 1000px;
+    font-family: sans-serif;
+    padding: 2% 0;
+    background-color: transparent;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    text-align: center;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    backface-visibility: hidden; /* Assurez-vous que ceci est appliqué */
+    border: 1px solid rgb(250, 145, 8);
+    border-radius: 1rem;
+    background: linear-gradient(120deg, rgb(5, 5, 5) 30%, rgba(42, 51, 45, 0.61) 88%, rgb(77, 82, 74) 40%, rgb(98, 100, 96) 78%);
+    color: rgb(231, 144, 12); /* Couleur du texte par défaut */
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: linear-gradient(120deg, rgb(5, 5, 5) 30%, rgba(42, 51, 45) 88%, rgb(77, 82, 74) 40%, rgb(98, 100, 96) 78%);
+}
+
+.title {
+    font-size: 1.2em;
+    font-weight: 900;
+    margin: 0;
+    text-align: center;
+    color: #8f8c8c65;
+}
+
+.flip-card-back video {
+    max-width: 90%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.flip-card-back p {
+    margin-top: 10px;
+    color: rgb(231, 144, 12);
+    text-align: center;
+}
+
+.tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.tag {
+    background-color: rgba(250, 145, 8, 0.2);
+    border: 1px solid rgb(250, 145, 8);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 2px;
+    font-size: 0.8em;
+}
+
+.carousel {
+    position: relative;
+    width: 80%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.carousel-images {
+    display: flex;
+    justify-content: center;
+    transition: transform 0.5s ease;
+}
+
+.carousel-image {
+    max-width: 90%;
+    max-height: 250px;
+    height: auto;
+    display: none;
+    margin: 0 auto;
+}
+
+.carousel-image.active {
+    display: block;
+}
+
+.flip-card-back img {
+    max-width: 80%; /* Limite la largeur à 80% du conteneur */
+    height: auto; /* Maintient le ratio d'aspect */
+    border-radius: 8px; /* Bord arrondi pour l'image */
+    margin: 10px 0; /* Espacement autour de l'image */
+}
+
+
+
+.embed-container {
+    width: 100%; /* Vous pouvez ajuster cette largeur selon vos besoins */
+    max-width: 800px; /* Ajustez la taille maximale ici */
+    height: 80%;
+    margin: 0 auto; /* Centre le conteneur */
+}
+
+.embed-container embed {
+    width: 100%; /* S'assure que l'embed prend toute la largeur de son conteneur */
+    height: 100%; /* S'assure que l'embed prend toute la hauteur de son conteneur */
+    max-height: 600px; /* Limitez la hauteur maximum ici */
+    border: none; /* Supprime le bord si nécessaire */
+}
+
+
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    /* Flip cards stack vertically */
+    .flip-card {
+        width: 90%;
+        height: 420px;
+        perspective: 1000px;
+        font-family: sans-serif;
+        padding: 2% 0;
+        background-color: transparent;
+    }
+
+    /* Adjust font sizes and layout */
+    .title {
+        font-size: 1.7em; /* Reduce title size */
+    }
+
+    .flip-card-back p {
+        font-size: 0.9em; /* Smaller text for smaller screens */
+    }
+
+    .tags {
+        justify-content: center; /* Assurez-vous que les balises restent centrées */
+        flex-direction: row; /* Permet aux balises d'être en ligne sur petits écrans */
+    }
+
+    .tag {
+        font-size: 0.7em; /* Taille de police réduite pour les petits écrans */
+        max-width: 100%; /* Permet aux balises de s'étendre complètement */
+    }
+}
