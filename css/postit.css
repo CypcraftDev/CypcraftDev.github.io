@@ -1,0 +1,137 @@
+/* Styles généraux */
+.post-it-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.quote-container {
+    margin-top: 50px;
+    position: relative;
+    width: 45%;  /* Par défaut, chaque post-it prend 45% de la largeur */
+    margin-bottom: 20px;
+}
+
+.note {
+    color: #333;
+    position: relative;
+    padding: 20px;
+    font-family: Satisfy;
+    font-size: 20px;
+    box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.3);
+    background: #eae672;
+    transform: rotate(2deg);
+}
+
+.pin {
+    background-color: #aaa;
+    display: block;
+    height: 32px;
+    width: 2px;
+    position: absolute;
+    left: 50%;
+    top: -16px;
+    z-index: 1;
+    transform: rotate(20deg); /* Angle plus léger pour le pin */
+}
+
+.note .author {
+    display: block;
+    margin: 40px 0 0 0;
+    text-align: right;
+}
+
+.yellow {
+    background: #eae672;
+    transform: rotate(2deg);
+}
+
+/* Pin ronde : ajustement de l'ombre */
+.pin:after {
+    background-color: #A31;
+    background-image: radial-gradient(25% 25%, circle, hsla(0, 0%, 100%, .3), hsla(0, 0%, 0%, .3));
+    border-radius: 50%;
+    content: '';
+    height: 12px;
+    left: -5px;
+    position: absolute;
+    top: -4px; /* Position de la boule remontée de 5px */
+    width: 12px;
+    /* Ombre plus descendue, légèrement floutée */
+    box-shadow: 6px 8px 4px rgba(0, 0, 0, 0.4); /* Ombre plus nette mais avec un peu de flou */
+    /* pos boule : la position de la boule est définie par le top: -5px */
+}
+
+/* Pin bâton : ajustement de l'ombre */
+.pin:before {
+    background-color: hsla(0, 0%, 0%, 0.1);
+    content: '';
+    height: 24px;
+    width: 2px;
+    left: 5px;
+    position: absolute;
+    top: 8px;
+    transform: rotate(18deg); /* Réduction de l'inclinaison du bâton */
+    /* Ombre plus nette, décalée vers la droite et plus haute */
+    box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.4); /* Ombre plus nette et décalée vers la droite */
+}
+
+
+cite {
+    display: flex;
+    justify-content: left;
+    gap: 10px; /* Espace entre les tags */
+    flex-wrap: wrap; /* Permet de passer à la ligne suivante si nécessaire */
+}
+
+cite .tag {
+    background-color: rgba(250, 145, 8, 0.25);
+    padding: 5px 10px; /* Optionnel : ajout de padding pour un meilleur espacement */
+    border-radius: 5px; /* Optionnel : ajoutez une bordure arrondie pour le style */
+}
+
+
+/* Styles pour les petits écrans */
+@media screen and (max-width: 600px) {
+    /* Ajustement de la largeur des post-its pour occuper toute la largeur */
+    .quote-container {
+        width: 100%; /* Chaque post-it prend toute la largeur */
+        margin-top: 20px;
+    }
+
+    /* Réduction de la taille de la police pour l'adapter aux petits écrans */
+    .note {
+        font-size: 16px; /* Taille de police plus petite */
+        padding: 15px; /* Un peu moins de padding */
+    }
+
+    /* Modification du comportement de la disposition pour plus de lisibilité */
+    .post-it-container {
+        justify-content: center; /* Centrer les éléments pour une meilleure présentation */
+    }
+
+    /* Adaptation des marges */
+    .quote-container {
+        margin-bottom: 10px; /* Moins d'espace entre les post-its */
+    }
+
+    /* Réduction de la taille du pin tout en conservant l'inclinaison */
+    .pin {
+        height: 25px;  /* Réduire la taille du pin */
+        width: 2px;
+        top: -10px;
+        transform: rotate(15deg); /* Inclinaison plus légère sur petits écrans */
+        box-shadow: none; /* Suppression de l'ombre pour le pin entier */
+    }
+
+    /* Suppression de l'ombre du pin sur les petits écrans (pour les pseudo-éléments aussi) */
+    .pin:after,
+    .pin:before {
+        box-shadow: none; /* Aucune ombre pour le pin sur petits écrans */
+    }
+
+    .pin:before {
+        background-color: transparent; /* Supprime le fond */
+    }
+    
+}
