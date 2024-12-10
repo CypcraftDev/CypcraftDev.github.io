@@ -10,6 +10,10 @@
   --border-color: rgba(0, 0, 0, 0.1); /* Ombre des blocs */
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 /* Global Styling */
 * {
   margin: 0; /* Supprime la marge par défaut */
@@ -51,6 +55,11 @@ ul {
 
 ul li {
   margin-bottom: 10px; /* Marge en bas pour les éléments de la liste */
+}
+
+p{
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Présentation section styles */
@@ -124,6 +133,13 @@ ul li {
   position: relative; /* Positionnement relatif pour les enfants */
   width: 50%; /* Largeur de chaque conteneur */
   border-radius: 10px; /* Pour un design plus arrondi */
+}
+
+.timeline img{
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
 }
 
 /* Animation Keyframes */
@@ -223,7 +239,7 @@ ul li {
 /* Contenu des conteneurs */
 .content {
   padding: 20px 30px; /* Padding interne */
-  background-color: var(--container-bg-color); /* Couleur de fond des conteneurs */
+  background-color: var(--border-color); /* Couleur de fond des conteneurs */
   border-radius: 8px; /* Arrondi des coins */
   box-shadow: 0 4px 10px var(--border-color); /* Ombre portée */
   transition: background-color 0.3s; /* Transition pour le fond */

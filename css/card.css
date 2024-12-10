@@ -11,11 +11,13 @@
 /* Flip card styles */
 .flip-card {
     width: 45%;
-    height: 420px;
+    /* Ajouter aspect-ratio pour maintenir la proportion de la carte */
+    aspect-ratio: 1; /* La carte gardera un ratio de 1:1 */
     perspective: 1000px;
     font-family: sans-serif;
     padding: 2% 0;
     background-color: transparent;
+    transition: transform 0.8s;
 }
 
 .flip-card-inner {
@@ -31,7 +33,6 @@
     transform: rotateY(180deg);
 }
 
-
 .flip-card-front, .flip-card-back {
     box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
     position: absolute;
@@ -40,10 +41,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    backface-visibility: hidden; /* Assurez-vous que ceci est appliqué */
+    backface-visibility: hidden;
     border: 1px solid rgb(250, 145, 8);
     border-radius: 1rem;
-    background: linear-gradient(120deg, rgb(5, 5, 5) 30%, rgba(42, 51, 45, 0.61) 88%, rgb(77, 82, 74) 40%, rgb(98, 100, 96) 78%);
+    background: linear-gradient(120deg, rgb(5, 5, 5) 30%, rgba(42, 51, 45) 92%, rgb(77, 82, 74) 100%);
     color: rgb(231, 144, 12); /* Couleur du texte par défaut */
 }
 
@@ -54,7 +55,8 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background: linear-gradient(120deg, rgb(5, 5, 5) 30%, rgba(42, 51, 45) 88%, rgb(77, 82, 74) 40%, rgb(98, 100, 96) 78%);
+    height: 100%; /* Fixe la hauteur à 100% pour ne pas dépasser */
+    overflow: hidden; /* Cache les débordements pour éviter l'espace blanc */
 }
 
 .title {
@@ -66,7 +68,7 @@
 }
 
 .flip-card-back video {
-    max-width: 90%;
+    width: 100%;
     height: auto;
     border-radius: 8px;
 }
@@ -93,62 +95,52 @@
     font-size: 0.8em;
 }
 
-.carousel {
-    position: relative;
-    width: 80%;
-    overflow: hidden;
-    margin: 0 auto;
-}
-
-.carousel-images {
-    display: flex;
-    justify-content: center;
-    transition: transform 0.5s ease;
-}
-
-.carousel-image {
-    max-width: 90%;
-    max-height: 250px;
-    height: auto;
-    display: none;
-    margin: 0 auto;
-}
-
-.carousel-image.active {
-    display: block;
-}
-
 .flip-card-back img {
     max-width: 80%; /* Limite la largeur à 80% du conteneur */
-    height: auto; /* Maintient le ratio d'aspect */
-    border-radius: 8px; /* Bord arrondi pour l'image */
+    height: auto;
+    border-radius: 8px;
     margin: 10px 0; /* Espacement autour de l'image */
 }
 
-
-
 .embed-container {
-    width: 100%; /* Vous pouvez ajuster cette largeur selon vos besoins */
-    max-width: 800px; /* Ajustez la taille maximale ici */
+    width: 100%;
+    max-width: 800px;
     height: 80%;
-    margin: 0 auto; /* Centre le conteneur */
+    margin: 0 auto;
 }
 
 .embed-container embed {
-    width: 100%; /* S'assure que l'embed prend toute la largeur de son conteneur */
-    height: 100%; /* S'assure que l'embed prend toute la hauteur de son conteneur */
-    max-height: 600px; /* Limitez la hauteur maximum ici */
-    border: none; /* Supprime le bord si nécessaire */
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    border: none;
 }
 
+/* Cible le texte à l'intérieur de details lorsque celui-ci est ouvert */
+details[open] p {
+    padding-bottom: 20px; /* Ajoute du padding vers le bas du texte dans details ouvert */
+}
 
+/* Ajuste la taille et le style général du texte dans details */
+details p {
+    font-size: 0.75em;
+}
+
+/* Ajuste l'aspect général des détails */
+details {
+    max-height: 150px;
+    overflow: auto;
+    padding: 5px;
+    border-radius: 8px;
+}
 
 /* Responsive adjustments */
 @media only screen and (max-width: 768px) {
     /* Flip cards stack vertically */
     .flip-card {
         width: 90%;
-        height: 420px;
+        aspect-ratio: 1; /* La carte conserve un aspect carré même sur mobile */
+        height: auto; /* La hauteur est ajustée en fonction de la largeur */
         perspective: 1000px;
         font-family: sans-serif;
         padding: 2% 0;
@@ -157,20 +149,32 @@
 
     /* Adjust font sizes and layout */
     .title {
-        font-size: 1.7em; /* Reduce title size */
+        font-size: 1.7em; /* Réduit la taille du titre */
     }
 
     .flip-card-back p {
-        font-size: 0.9em; /* Smaller text for smaller screens */
+        font-size: 0.9em; /* Texte plus petit sur les petits écrans */
     }
 
     .tags {
-        justify-content: center; /* Assurez-vous que les balises restent centrées */
+        justify-content: center;
         flex-direction: row; /* Permet aux balises d'être en ligne sur petits écrans */
     }
 
     .tag {
         font-size: 0.7em; /* Taille de police réduite pour les petits écrans */
         max-width: 100%; /* Permet aux balises de s'étendre complètement */
+    }
+
+    .flip-card-back {
+        padding: 5px;
+        height: 100%; /* Hauteur de la carte s'ajuste */
+        overflow-y: hidden; /* Cache les débordements */
+    }
+    
+    /* Ajuste les détails sur petits écrans */
+    details {
+        max-height: 120px; /* Limite la taille de la description sur petits écrans */
+        overflow: auto;
     }
 }
