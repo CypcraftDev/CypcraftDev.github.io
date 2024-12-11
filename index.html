@@ -93,28 +93,28 @@
                 <div class="quote-container">
                     <i class="pin"></i>
                     <blockquote class="note yellow">
-                      Je suis arbitre pour la First Lego League (FLL) depuis 3 ans, également un anciens participant.
+                      Je suis arbitre pour la First Lego League (FLL) depuis 3 ans, également un ancien participant.
                     <cite class="author"><span class="tag">Capacitée Décisionnel</span><span class="tag">Pédagogie</span><span class="tag">Médiation</span></cite>   
                     </blockquote>
                 </div>
                 <div class="quote-container">
                     <i class="pin"></i>
                     <blockquote class="note yellow">
-                      Je suis un anciens animateur/réalisateur d'évenement pour des serveurs Minecraft.  
+                        Je suis un ancien animateur/réalisateur d'événements pour des serveurs Minecraft.  
                       <cite class="author"><span class="tag">Communication</span><span class="tag">Travail d'équipe</span></cite>   
                     </blockquote>
                 </div>
                 <div class="quote-container">
                     <i class="pin"></i>
                     <blockquote class="note yellow">
-                      J'aide de à la gestion et organisation IRL tels que des kermesse ou des concerts. 
+                        J'aide à la gestion et à l'organisation d'événements d'IRL tels que des kermesses ou des concerts.
                       <cite class="author"><span class="tag">Gestion du stress</span><span class="tag">Coordination</span></cite>   
                     </blockquote>
                 </div>
                 <div class="quote-container">
                     <i class="pin"></i>
                     <blockquote class="note yellow">
-                      Je suis Hôte de Caisse(Encaissement des clients, nettoyage, préparation de plâts...) pour le supermarché Match de Armentières depuis le 22 Avril 2024. 
+                      Je suis Hôte de Caisse (Encaissement des clients, nettoyage, préparation de plâts...) pour le supermarché Match d'Armentières depuis le 22 avril 2024.
                       <cite class="author"><span class="tag">Polyvalence</span><span class="tag">Autonomie</span><span class="tag">Écoute active</span></cite>   
                     </blockquote>
                 </div>
@@ -418,7 +418,7 @@
                     <a href="mailto:cyprien.freville.etu@univ-lille.fr">Email : cyprien.freville.etu@univ-lille.fr</a>
                 </li>
                 <li>
-                    <a href="https://discord.com/users/Cypcraft" target="_blank">Discord:cypcraft</a>
+                    <a href="mailto:cyprien.freville3@gmail.com">Email : cyprien.freville3@gmail.com</a>
                 </li>
             </ul>
             <p>&copy; 2024 FREVILLE Cyprien. Tous droits réservés.</p>
@@ -426,53 +426,5 @@
     </footer>
     <script src="js/mainPage.js"></script>
     <script src="js/nav.js"></script>
-    <script>
-        let slideIndex = [1,1];
-        /* Class the members of each slideshow group with different CSS classes */
-        let slideId = ["mySlides1", "mySlides2", "mySlides3"]
-        showSlides(1, 0);
-        showSlides(1, 1);
-        showSlides(1, 2);
-
-        function plusSlides(n, no) {
-            console.log(`Before updating, slideIndex[${no}] = ${slideIndex[no]}`);
-            slideIndex[no] += n;
-            console.log(`After updating, slideIndex[${no}] = ${slideIndex[no]}`);
-            showSlides(slideIndex[no], no); // Calling showSlides after the update
-        }
-
-
-        function showSlides(n, no) {
-            console.log(`Displaying slide ${n} for slideId: ${slideId[no]}`);
-            let i;
-            let x = document.getElementsByClassName(slideId[no]);
-
-            // Ensure n is within the correct bounds
-            if (n > x.length) {
-                slideIndex[no] = 1;  // Reset to the first slide
-                n = 1;  // Ensure `n` is within bounds
-            }
-            if (n < 1) {
-                slideIndex[no] = x.length;  // Reset to the last slide
-                n = x.length;  // Ensure `n` is within bounds
-            }
-
-            // Hide all slides first
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";  // Hide the current slide
-                console.log(`Hiding slide: ${i}`);  // Debug log for hidden slides
-            }
-
-            // Update the slideIndex for the specific slide set (no)
-            slideIndex[no] = n;
-
-            // Show the selected slide
-            x[slideIndex[no] - 1].style.display = "block";  // Correct index calculation
-            console.log(`Showing slide: ${slideIndex[no] - 1}`);  // Log the shown slide index
-        }
-
-
-
-        </script>
 </body>
 </html>

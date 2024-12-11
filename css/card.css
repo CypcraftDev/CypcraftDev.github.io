@@ -96,10 +96,10 @@
 }
 
 .flip-card-back img {
-    max-width: 80%; /* Limite la largeur à 80% du conteneur */
+    max-width: 80%;
     height: auto;
     border-radius: 8px;
-    margin: 10px 0; /* Espacement autour de l'image */
+    margin: 10px 0;
 }
 
 .embed-container {
