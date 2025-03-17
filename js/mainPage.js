@@ -107,3 +107,4 @@ document.querySelectorAll('img').forEach(img => {
     img.addEventListener('dblclick', () => openImageInNewPage(img.src));
 });
 
+
